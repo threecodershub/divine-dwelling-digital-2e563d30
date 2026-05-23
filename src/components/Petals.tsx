@@ -1,6 +1,9 @@
-import { useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 export function Petals({ count = 18 }: { count?: number }) {
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+
   const petals = useMemo(
     () =>
       Array.from({ length: count }).map((_, i) => ({
@@ -12,8 +15,10 @@ export function Petals({ count = 18 }: { count?: number }) {
         hue: Math.random() > 0.6 ? "gold" : "ivory",
         key: i,
       })),
-    [count]
+    [count, mounted]
   );
+
+  if (!mounted) return null;
 
   return (
     <div className="pointer-events-none absolute inset-0 overflow-hidden z-10">
