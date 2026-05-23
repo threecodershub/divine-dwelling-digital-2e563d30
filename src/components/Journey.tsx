@@ -34,31 +34,33 @@ export function Journey() {
 
           <div className="space-y-12">
             {steps.map((s, i) => (
-              <div
-                key={s.title}
-                className={`relative md:grid md:grid-cols-2 md:gap-12 items-center ${i % 2 ? "md:[&>*:first-child]:order-2" : ""}`}
-              >
-                <div className={`${i % 2 ? "md:text-left md:pl-12" : "md:text-right md:pr-12"} text-center`}>
-                  <div className="inline-block font-sans-ui text-xs tracking-[0.3em] text-gold uppercase mb-2">
-                    {s.year}
+              <Reveal key={s.title} delay={i * 80}>
+                <div
+                  className={`relative md:grid md:grid-cols-2 md:gap-12 items-center ${i % 2 ? "md:[&>*:first-child]:order-2" : ""}`}
+                >
+                  <div className={`${i % 2 ? "md:text-left md:pl-12" : "md:text-right md:pr-12"} text-center`}>
+                    <div className="inline-block font-sans-ui text-xs tracking-[0.3em] text-gold uppercase mb-2">
+                      {s.year}
+                    </div>
+                    <h3 className="font-display text-2xl md:text-4xl text-ivory mb-2">{s.title}</h3>
+                    <p className="font-display italic text-muted-foreground">{s.caption}</p>
                   </div>
-                  <h3 className="font-display text-2xl md:text-4xl text-ivory mb-2">{s.title}</h3>
-                  <p className="font-display italic text-muted-foreground">{s.caption}</p>
-                </div>
 
-                {/* Center dot */}
-                <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 w-6 h-6 items-center justify-center">
-                  <div className="absolute inset-0 rounded-full bg-gold/30 animate-glow" />
-                  <div className="relative w-3 h-3 rounded-full bg-gold shadow-gold" />
-                </div>
+                  {/* Center dot with pulsing rings */}
+                  <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 w-6 h-6 items-center justify-center">
+                    <span className="absolute w-3 h-3 rounded-full border border-gold animate-ring" />
+                    <div className="absolute inset-0 rounded-full bg-gold/30 animate-glow" />
+                    <div className="relative w-3 h-3 rounded-full bg-gold shadow-gold" />
+                  </div>
 
-                <div className={`hidden md:block ${i % 2 ? "md:pr-12 md:text-right" : "md:pl-12"}`}>
-                  <div className="glass-gold rounded-lg p-6 inline-block">
-                    <div className="font-tamil text-gold text-lg">✦</div>
-                    <div className="font-display text-gold-gradient text-xl mt-1">Chapter {i + 1}</div>
+                  <div className={`hidden md:block ${i % 2 ? "md:pr-12 md:text-right" : "md:pl-12"}`}>
+                    <div className="glass-gold rounded-lg p-6 inline-block hover:shadow-gold transition-all duration-500 hover:-translate-y-1">
+                      <div className="font-tamil text-gold text-lg animate-drift">✦</div>
+                      <div className="font-display text-gold-gradient text-xl mt-1">Chapter {i + 1}</div>
+                    </div>
                   </div>
                 </div>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>
