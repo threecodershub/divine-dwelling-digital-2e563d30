@@ -1,4 +1,5 @@
 import { OrnamentDivider } from "./OrnamentDivider";
+import { Reveal } from "./Reveal";
 
 const steps = [
   { title: "A Dream Begins", caption: "Where every prayer planted a seed of hope.", year: "2019" },
