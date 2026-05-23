@@ -25,23 +25,25 @@ export function HomeShowcase() {
 
         <div className="grid md:grid-cols-3 gap-6">
           {showcase.map((s, i) => (
-            <div
-              key={i}
-              className="group relative overflow-hidden rounded-2xl shadow-elegant border-gold aspect-[4/5]"
-            >
-              <img
-                src={s.img}
-                alt={s.title}
-                loading="lazy"
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1500ms] group-hover:scale-110"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
-              <div className="absolute bottom-0 left-0 right-0 p-6 text-center">
-                <h3 className="font-display text-2xl text-gold-gradient mb-1">{s.title}</h3>
-                <p className="font-display italic text-ivory/80 text-sm">{s.caption}</p>
+            <Reveal key={i} delay={i * 150}>
+              <div className="group relative overflow-hidden rounded-2xl shadow-elegant border-gold aspect-[4/5] hover:shadow-gold transition-shadow duration-700">
+                <img
+                  src={s.img}
+                  alt={s.title}
+                  loading="lazy"
+                  className="absolute inset-0 w-full h-full object-cover transition-all duration-[1800ms] group-hover:scale-110 group-hover:rotate-1"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
+                {/* Sweep shine on hover */}
+                <span className="absolute -inset-x-1/2 top-0 h-full w-1/2 -translate-x-full group-hover:translate-x-[300%] transition-transform duration-[1400ms] ease-out pointer-events-none"
+                  style={{ background: "linear-gradient(110deg, transparent, oklch(0.92 0.12 85 / 0.18), transparent)" }} />
+                <div className="absolute bottom-0 left-0 right-0 p-6 text-center transition-transform duration-700 group-hover:-translate-y-2">
+                  <h3 className="font-display text-2xl text-gold-gradient mb-1">{s.title}</h3>
+                  <p className="font-display italic text-ivory/80 text-sm">{s.caption}</p>
+                </div>
+                <div className="absolute inset-3 border-gold rounded-xl pointer-events-none opacity-60 group-hover:opacity-100 group-hover:inset-2 transition-all duration-700" />
               </div>
-              <div className="absolute inset-3 border-gold rounded-xl pointer-events-none opacity-60" />
-            </div>
+            </Reveal>
           ))}
         </div>
       </div>
