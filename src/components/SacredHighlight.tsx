@@ -1,4 +1,5 @@
 import { OrnamentDivider } from "./OrnamentDivider";
+import { Reveal } from "./Reveal";
 import lamp from "@/assets/sacred-lamp.jpg";
 
 export function SacredHighlight() {
