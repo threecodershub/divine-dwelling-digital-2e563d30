@@ -1,4 +1,5 @@
 import { OrnamentDivider } from "./OrnamentDivider";
+import { Reveal } from "./Reveal";
 import exterior from "@/assets/house-exterior.jpg";
 import pooja from "@/assets/pooja-room.jpg";
 
