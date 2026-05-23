@@ -24,29 +24,29 @@ export function Events() {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {events.map((e, i) => (
-            <div
-              key={e.name}
-              className="group relative glass-gold rounded-xl p-6 shadow-elegant hover:shadow-gold transition-all duration-500 hover:-translate-y-1"
-              style={{ animationDelay: `${i * 80}ms` }}
-            >
-              {/* Temple pillar caps */}
-              <div className="absolute -top-px left-6 right-6 h-px bg-gradient-to-r from-transparent via-gold to-transparent" />
-              <div className="absolute -bottom-px left-6 right-6 h-px bg-gradient-to-r from-transparent via-gold/60 to-transparent" />
+            <Reveal key={e.name} delay={i * 90}>
+              <div className="group relative glass-gold rounded-xl p-6 shadow-elegant hover:shadow-gold transition-all duration-700 hover:-translate-y-2 hover:rotate-[0.3deg] h-full">
+                {/* Temple pillar caps */}
+                <div className="absolute -top-px left-6 right-6 h-px bg-gradient-to-r from-transparent via-gold to-transparent" />
+                <div className="absolute -bottom-px left-6 right-6 h-px bg-gradient-to-r from-transparent via-gold/60 to-transparent" />
+                <span className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"
+                  style={{ background: "radial-gradient(circle at 50% 0%, oklch(0.86 0.12 85 / 0.18), transparent 60%)" }} />
 
-              <div className="text-4xl mb-3 group-hover:scale-110 transition-transform duration-500">
-                {e.icon}
-              </div>
-              <div className="font-tamil text-gold text-sm mb-1">{e.tamil}</div>
-              <h3 className="font-display text-2xl text-ivory mb-1">{e.name}</h3>
-              <div className="font-sans-ui text-xs tracking-[0.2em] text-gold uppercase mb-3">
-                {e.time} · Aug 14
-              </div>
-              <p className="font-display italic text-muted-foreground text-sm mb-4">{e.desc}</p>
+                <div className="text-4xl mb-3 inline-block group-hover:scale-125 group-hover:-rotate-6 transition-transform duration-500 animate-drift">
+                  {e.icon}
+                </div>
+                <div className="font-tamil text-gold text-sm mb-1">{e.tamil}</div>
+                <h3 className="font-display text-2xl text-ivory mb-1">{e.name}</h3>
+                <div className="font-sans-ui text-xs tracking-[0.2em] text-gold uppercase mb-3">
+                  {e.time} · Aug 14
+                </div>
+                <p className="font-display italic text-muted-foreground text-sm mb-4">{e.desc}</p>
 
-              <button className="text-xs tracking-[0.2em] font-sans-ui uppercase text-gold border-b border-gold/40 pb-0.5 hover:border-gold transition-colors">
-                + Add to Calendar
-              </button>
-            </div>
+                <button className="text-xs tracking-[0.2em] font-sans-ui uppercase text-gold border-b border-gold/40 pb-0.5 hover:border-gold hover:tracking-[0.3em] transition-all duration-500">
+                  + Add to Calendar
+                </button>
+              </div>
+            </Reveal>
           ))}
         </div>
       </div>
