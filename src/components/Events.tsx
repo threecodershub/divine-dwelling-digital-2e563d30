@@ -1,4 +1,5 @@
 import { OrnamentDivider } from "./OrnamentDivider";
+import { Reveal } from "./Reveal";
 
 const events = [
   { name: "Ganapathi Homam", tamil: "கணபதி ஹோமம்", time: "6:00 AM", desc: "Invoking Lord Ganesha for an obstacle-free beginning.", icon: "🕉️" },
